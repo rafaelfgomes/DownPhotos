@@ -1,4 +1,4 @@
-<p align="center">Projeto DownPhotos</p>
+<h1 align="center">Projeto DownPhotos</h1>
 
 
 ## Sobre este projeto

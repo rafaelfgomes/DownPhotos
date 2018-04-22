@@ -1,0 +1,35 @@
+#fix-descricao > div > div > p{
+width: 11em; 
+word-wrap: break-word;
+border: 0px solid #EEE;
+outline-color: #4eaddf;
+margin-top: 0px;
+width: 400px;
+height: 230px;
+padding: 8px;
+font-size: 1em;
+padding: 0.5em;
+
+}
+
+.col-md-6.login-left.wow.fadeInLeft > div:nth-child(1) > p{
+  border: 1px solid #EEE;
+    outline-color: #4eaddf;
+    width: 96%;
+    font-size: 1em;
+    padding: 0.5em;
+
+
+}
+.col-md-6.login-left.wow.fadeInLeft > div:nth-child(2) > p{
+  border: 1px solid #EEE;
+    outline-color: #4eaddf;
+    width: 96%;
+    font-size: 1em;
+    padding: 0.5em;
+
+  
+}
+#yourModal > div > div > div > div{
+    height: 330px;
+}

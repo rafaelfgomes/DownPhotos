@@ -1,0 +1,40 @@
+{
+  "name": "pion/laravel-chunk-upload",
+  "description": "Service for chunked upload with several js providers",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Martin Kluska",
+      "email": "martin@kluska.cz"
+    }
+  ],
+  "require": {
+    "illuminate/http": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*",
+    "illuminate/console": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*",
+    "illuminate/support": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*",
+    "illuminate/filesystem": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*"
+  },
+  "require-dev": {
+    "laravel/laravel": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*",
+    "phpunit/phpunit": "5.7 || 6.0",
+    "mockery/mockery": "^0.9.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pion\\Laravel\\ChunkUpload\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra":{
+     "laravel":{
+        "providers":[
+           "Pion\\Laravel\\ChunkUpload\\Providers\\ChunkUploadServiceProvider"
+        ]
+     }
+  },
+  "minimum-stability": "stable"
+}

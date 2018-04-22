@@ -1,0 +1,138 @@
+@extends('layouts.master')
+
+@section('content')
+
+  @include('layouts.includes.scriptFancyBox')
+
+  <link href="{{ asset('css/usuario.css') }}" rel="stylesheet" />
+
+  <div class="main-1">
+
+    <h1>Minhas compras</h1>
+
+    @include('layouts.usuario.menucompravenda')
+
+    <div class="col-md-10 col-sm-11 display-table-cell v-align">
+
+      <div class="row"></div>
+
+      <div class="row">
+
+        <p>&nbsp;</p>
+
+        <section class="content">
+
+          <div class="col-md-12 col-md-offset-2">
+
+            <div class="panel panel-default">
+
+              <div class="panel-body">
+
+                <div class="table-container">
+
+                  <table class="table table-filter">
+
+                    <thead>
+                      
+                      <tr>
+
+
+                                        <th class="text-center">Imagem</th>
+                                        <th class="text-center">Nome</th>
+                                        <th class="text-center">Valor</th>
+                                        <th class="text-center">Data da compra</th>
+                                        <th class="text-center">Liberado em:</th>
+                                        <th></th>
+
+                      </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                      @foreach ($compras as $compra)
+                      
+                        <tr>
+
+                          <form accept-charset="UTF-8" method="POST" action="/baixarCompradas">
+                          {{csrf_field()}}
+
+                            <td class="text-center" style="vertical-align: middle;">
+
+                              <div class="media">
+                                
+                                <a data-fancybox="gallery" href="/usuario/previewLarge/{{$compra->imagem_id }}" class="pull-left"><img src="/usuario/preview/{{ $compra->imagem_id }}" class="media-photo" style="width: 100px; height: 70px;"></a>
+
+                              </div>
+
+                            </td>
+
+                            <td class="text-center" style="width: 120px; vertical-align: middle;">{{ $compra->apelido }}</td>
+
+                            <td class="text-center" style="vertical-align: middle;">R$&nbsp;{{ str_replace('.', ',', money_format('%.2n', $compra->valor)) }}</td>
+
+                            <td class="text-center" style="vertical-align: middle;">{{ date_format(\Carbon\Carbon::parse($compra->data_pedido), 'd/m/Y') }} às {{ date_format(\Carbon\Carbon::parse($compra->data_pedido), 'H:i:s') }}</td>
+
+                            <td class="text-center" style="vertical-align: middle;">{{ date_format(\Carbon\Carbon::parse($compra->liberacao_download), 'd/m/Y') }} às {{ date_format(\Carbon\Carbon::parse($compra->liberacao_download), 'H:i:s') }}</td>
+
+                            <td class="text-center"><input type="submit" name="files[{{ $compra->nome }}]" value="Baixar" class="bluebt"/></td>
+
+                          </form>
+
+                        </tr>
+
+                      @endforeach
+
+                    </tbody>
+
+                  </table>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>  
+  
+    </div>
+
+    <div class="text-center">
+
+        {{ $compras->links() }}
+
+    </div>
+
+  </div>
+
+  <div class="modal fade" id="yourModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content"></div>
+
+     </div>
+
+  </div>
+
+  <style>
+
+     #yourModal > div {
+
+        width: 1200px;
+
+      }
+
+     body > div.main-1 > div.col-md-10.col-sm-11.display-table-cell.v-align > div > section > div > div > div > div > form:nth-child(3) > table > tbody:nth-child(3) > tr:nth-child(1) > td:nth-child(2) {
+
+        width: 390px;
+
+      }
+
+  </style>
+  
+@endsection

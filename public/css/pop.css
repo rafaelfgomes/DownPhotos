@@ -1,0 +1,33 @@
+.popover-header {
+  z-index: 1; 
+  color:black;
+  padding: 8px 14px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.popover-title {
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.popover-content{
+  color:black;
+
+}
+
+.example-popovers {
+  padding: 30px 0;
+}
+
+
+
+.acenter {
+  text-align: center;
+  margin: 30px 0;
+}
